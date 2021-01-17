@@ -6,14 +6,14 @@ import Character from "./Character"
 import {Row} from "react-bootstrap"
 const Characters = () => {
         const BASE_URL = "https://rickandmortyapi.com/api";
-        const [characters, setCharacters] = useState()    
+        const [characters, setCharacters] = useState([])    
         const [fetching, setFetch] = useState(true)    
         const [error, setError] = useState(false) 
         const getCharacters = async (endpoint) => {
             try {
                 const result = await fetch (`${BASE_URL}/${endpoint}`)
                 const data = await result.json
-                setCharacters(data.results) 
+                setCharacters(data.results) // array de personajeszs
                 setFetch(false)
             } catch (e) {
                 setError(true)
@@ -28,8 +28,7 @@ const Characters = () => {
     
     return (
         <Row>
-            {
-            fetching // si fetching es true..
+            { fetching // si fetching es true..
             ? <h3>Cargando...</h3>
             : characters.map((character) => {
                 <Character key={character.id} {...character} /* Descompongo los valores *//> 
