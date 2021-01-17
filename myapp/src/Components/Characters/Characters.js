@@ -6,9 +6,9 @@ import Character from "./Character"
 import {Row} from "react-bootstrap"
 const Characters = () => {
         const BASE_URL = "https://rickandmortyapi.com/api";
-        [characters, setCharacters] = useState([])    
-        [fetching, setFetch] = useState([true])    
-        [error, setError] = useState([false]) 
+        const [characters, setCharacters] = useState([])    
+        const [fetching, setFetch] = useState([true])    
+        const [error, setError] = useState([false]) 
         const getCharacters = async (endpoint) => {
 
             try {
