@@ -12,13 +12,13 @@ const Characters = () => {
         const getCharacters = async (endpoint) => {
             try {
                 const result = await fetch (`${BASE_URL}/${endpoint}`)
-                const data = await result.json
-                setCharacters(data.results) // array de personajeszs
+                const data = await result.json();
+                setCharacters(data.results) // array de personajes
                 setFetch(false)
             } catch (e) {
                 setError(true)
-                setFetch(true)
-                setCharacters()
+                setFetch(false)
+                setCharacters([])
             }
     
        }
