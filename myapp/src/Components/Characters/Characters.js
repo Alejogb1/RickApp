@@ -8,7 +8,6 @@ const Characters = () => {
         const BASE_URL = "https://rickandmortyapi.com/api";
         const [characters, setCharacters] = useState([])    
         const [fetching, setFetch] = useState(true)    
-        const [error, setError] = useState(false) 
         const getCharacters = async (endpoint) => {
             try {
                 const result = await fetch (`${BASE_URL}/${endpoint}`)
@@ -16,7 +15,6 @@ const Characters = () => {
                 setCharacters(data.results) // array de personajes
                 setFetch(false)
             } catch (e) {
-                setError(true)
                 setFetch(false)
                 setCharacters([])
             }
@@ -28,11 +26,13 @@ const Characters = () => {
     
     return (
         <Row>
-            { fetching // si fetching es true..
+            <h1>Hola</h1>
+            { 
+            fetching // si fetching es true..
             ? <h3>Cargando...</h3>
-            : characters.map((character) => {
+            : characters.map((character) => (
                 <Character key={character.id} {...character} /* Descompongo los valores *//> 
-            })      // characters es el array de objetos    
+            ))      // characters es el array de objetos    
             }
         </Row>
     )
