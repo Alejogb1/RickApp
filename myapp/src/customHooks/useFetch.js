@@ -13,7 +13,9 @@ export const useFetch = (endpoint, initialState = []) => {   // Por default, es 
         try {
             const result = await fetch (`${BASE_URL}/${endpoint}`);
             const data = await result.json();
-            setData(data.results) // array de personajes
+            console.log(data)
+            setData(data) // array de personajes
+            console.log(data.results)
             setFetch(false)
         } catch (e) {
             setError(true)
@@ -25,6 +27,6 @@ export const useFetch = (endpoint, initialState = []) => {   // Por default, es 
     useEffect(() => {
     getData() // De esta manera nos permite hacer la peticion Http. useEffect no puede ser async
     }, [])
-
+    console.log(data, fetching, error)
     return [data, fetching, error] // Alternativa a export default
 }
