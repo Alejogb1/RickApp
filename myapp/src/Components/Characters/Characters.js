@@ -1,13 +1,10 @@
 // Componente de lógica y map
 
-
-import {useState, useEffect} from 'react'
 import Character from "./Character"
 import {Row} from "react-bootstrap"
+import { useFetch } from "../../customHooks/useFetch"
 const Characters = () => {
-        const BASE_URL = "https://rickandmortyapi.com/api";
-
-    
+    const [characters, fetching, error] = useFetch("character") // No es necesario tener el mismo nombre 
     return (
         <Row>
             <h1>Hola</h1>
