@@ -4,7 +4,8 @@ import Character from "./Character"
 import {Row} from "react-bootstrap"
 import { useFetch } from "../../customHooks/useFetch"
 const Characters = () => {
-    const [characters, fetching, error] = useFetch("character") // No es necesario tener el mismo nombre 
+    const [data, fetching, error] = useFetch("character") // No es necesario tener el mismo nombre 
+    const {info, results : characters} = data; // Necesito desestructurar. Al results lo nombro como characters
     return (
         <Row>
             <h1>Hola</h1>
