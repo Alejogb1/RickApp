@@ -1,22 +1,17 @@
 // custom hook es una funcion personalizada que involucra uno o más hooks
-// custom hooks  -> funcional
+// custom hooks  -> solo es uncional
 
 import { useEffect, useState } from "react";
-import { environment } from "./../constants";
+// import { environment } from "./../constants";
 
-
-export const useFetch = (endpoint, initialState = []) => {  
+const BASE_URL = "https://rickandmortyapi.com/api"
+export const useFetch = (endpoint, initialState = []) => {   // Por default, es un objeto vacio
     const [data, setData] = useState([])    
     const [fetching, setFetch] = useState(true)    
     const [error, setError] = useState(false)    
-    const getData = async (endpoint) => {
+    const getData = async () => { // uso esta funcion en un useEffect
         try {
-            const result = await fetch (`${enviroment.BASE_URL}/${endpoint}`, {
-                method: "GET",
-                headers: {
-                    Authorization: "",
-                },
-            });
+            const result = await fetch (`${BASE_URL}/${endpoint}`);
             const data = await result.json();
             setData(data.results) // array de personajes
             setFetch(false)
@@ -28,8 +23,8 @@ export const useFetch = (endpoint, initialState = []) => {
     
     }
     useEffect(() => {
-    getData("character")
+    getData() // De esta manera nos permite hacer la peticion Http. useEffect no puede ser async
     }, [])
 
-    return [data, fetching, error]
+    return [data, fetching, error] // Alternativa a export default
 }
