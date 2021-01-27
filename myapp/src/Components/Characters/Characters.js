@@ -4,10 +4,16 @@ import Character from "./Character"
 import {Row} from "react-bootstrap"
 import { useFetch } from "../../customHooks/useFetch"
 import Paginate from './../Paginate'
+const BASE_ENDPOINT = "character"
 const Characters = () => {
-    const [url, setUrl] = useState("")
-    const [data, fetching, error] = useFetch("character") // No es necesario tener el mismo nombre 
+    const [url, setUrl] = useState(BASE_ENDPOINT)
+    const [data, fetching, error] = useFetch(url) // Custom hook. El url es el nuevo estado hecho por el paginate 
     const {info, results : characters} = data; // Necesito desestructurar. Al results lo nombro como characters
+    
+    const handlePages = (newUrl) => {
+        setUrl(`${BASE_ENDPOINT}?${newUrl}`)
+    }
+    
     return (
         <>
           <Row>
@@ -20,7 +26,7 @@ const Characters = () => {
             ))      // characters es el array de objetos    
             }
         </Row>
-        <Paginate/>
+        <Paginate {...info} handlePages={handlePages}/>
         </>
       
     )
