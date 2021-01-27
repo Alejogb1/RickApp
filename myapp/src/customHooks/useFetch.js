@@ -26,7 +26,7 @@ export const useFetch = (endpoint, initialState = []) => {   // Por default, es 
     }
     useEffect(() => {
     getData() // De esta manera nos permite hacer la peticion Http. useEffect no puede ser async
-    }, [])
+    }, [endpoint]) // Sirve para que cada vez que el paginate me manda un nuevo endpoint, se ejecute de nuevo!
     console.log(data, fetching, error)
     return [data, fetching, error] // Alternativa a export default
 }
