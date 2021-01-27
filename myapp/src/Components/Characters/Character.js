@@ -1,6 +1,7 @@
 import React from 'react'
+import moment from "moment"
 import {Col, Card, Button} from "react-bootstrap"
-const Character = ({name, id, image, gender, species,status}) =>{
+const Character = ({name, id, image, gender, species,status,created}) =>{
     return (
         /* Componente de presentacion y renderizado */
         <Col md={4} className="mt-3 mb-3">
@@ -14,7 +15,7 @@ const Character = ({name, id, image, gender, species,status}) =>{
               <p>
                 {status === "Alive" ? "VIVO" : "MUERTO"} - {species}
               </p>
-              <small></small>
+              <small>{moment(created).format("DD/MM/yyyy")}</small>
             </Card.Text>
             <Button
               type="button"
