@@ -3,7 +3,7 @@ import {useState, useEffect} from "react"
 import Character from "./Character"
 import {Row} from "react-bootstrap"
 import { useFetch } from "../../customHooks/useFetch"
-import Paginate from './../Paginate'
+import Paginate from '../Common/Paginate'
 const BASE_ENDPOINT = "character"
 const Characters = ({search}) => {
     
