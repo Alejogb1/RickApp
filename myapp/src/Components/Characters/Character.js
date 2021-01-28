@@ -1,5 +1,4 @@
 import React from 'react'
-import moment from "moment"
 import {Col, Card, Button} from "react-bootstrap"
 const Character = ({name, id, image, gender, species,status,created}) =>{
     return (
@@ -15,7 +14,7 @@ const Character = ({name, id, image, gender, species,status,created}) =>{
               <p>
                 {status === "Alive" ? "VIVO" : "MUERTO"} - {species}
               </p>
-              <small>{moment(created).format("DD/MM/yyyy")}</small>
+              <small>{created}</small>
             </Card.Text>
             <Button
               type="button"
