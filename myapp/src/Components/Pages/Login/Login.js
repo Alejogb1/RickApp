@@ -2,6 +2,7 @@ import {Row, Col, Form, Button} from "react-bootstrap"
 import {useForm} from "react-hook-form"
 import {schema} from "./schema"
 import { yupResolver } from "@hookform/resolvers/yup"
+// import { usePost } from "./../../../customHooks/useHttp";
 const Login = () =>  {
  // No se accede por vector, sino que por nombre
     const {register, handleSubmit, errors} = useForm({ 
@@ -11,9 +12,7 @@ const Login = () =>  {
         console.log(data) // Tengo data, en vez de e.target.value
         usePost(data)
     }
-    const usePost = () => {
-
-    }
+   const [post, data, fetching] = usePost()
     return (
         <>
             <Row className="justify-content-center vh-100 align-items-center m-0 p-0">
