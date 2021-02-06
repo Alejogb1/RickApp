@@ -1,7 +1,7 @@
 import {Row, Col, Form, Button} from "react-bootstrap"
 import {useForm} from "react-hook-form"
 import {schema} from "./schema"
-import { yupResolver } from "@hookform/resolvers"
+import { yupResolver } from "@hookform/resolvers/yup"
 const Login = () =>  {
  // No se accede por vector, sino que por nombre
     const {register, handleSubmit, errors} = useForm({ 
