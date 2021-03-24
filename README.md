@@ -5,7 +5,6 @@ API: https://rickandmortyapi.com/
 
 # CURSO DE REACT PUNCH IT 🥊
 
-En este repositorio encontraras las prácticas correspondientes al curso de React de PUNCH I
 
 ## Agradecimientos
 
