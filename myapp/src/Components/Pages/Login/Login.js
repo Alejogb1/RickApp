@@ -2,17 +2,15 @@ import {Row, Col, Form, Button} from "react-bootstrap"
 import {useForm} from "react-hook-form"
 import {schema} from "./schema"
 import { yupResolver } from "@hookform/resolvers/yup"
-// import { usePost } from "./../../../customHooks/useHttp";
+import { usePost } from "./../../../customHooks/useHttp";
 const Login = () =>  {
  // No se accede por vector, sino que por nombre
     const {register, handleSubmit, errors} = useForm({ 
         resolver: yupResolver(schema),
     });    
     const submitForm = (data) => {
-        console.log(data) // Tengo data, en vez de e.target.value
-        usePost(data)
+        console.log(data) 
     }
-   const [post, data, fetching] = usePost()
     return (
         <>
             <Row className="justify-content-center vh-100 align-items-center m-0 p-0">
@@ -22,16 +20,15 @@ const Login = () =>  {
                     <Form.Control
                     type="text"
                     name="username"
-                    ref={register} // Sirve para tener este input en cuenta
+                    ref={register} 
                     />
-                    {erros.mail && (
+                    {errors.mail && (
                     <label className="text-danger">{errors.mail.message}</label>
                     )}
                 </Form.Group>
                 <Form.Group>
                     <Form.Control
                     type="password"
- // Sirve para tener este input en cuenta
                     name="password"
                     
                     placeholder="password"
