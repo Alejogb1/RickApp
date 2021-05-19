@@ -8,7 +8,7 @@ const BASE_ENDPOINT = "character"
 const Characters = ({search}) => {
     
     const [url, setUrl] = useState(BASE_ENDPOINT)
-    const [data, fetching, error] = useFetch(url) // Custom hook. El url es el nuevo estado hecho por el paginate 
+    const [data, fetching] = useFetch(url) // Custom hook. El url es el nuevo estado hecho por el paginate 
     const {info, results : characters} = data; // Necesito desestructurar. Al results lo nombro como characters
     
     useEffect(() => {
